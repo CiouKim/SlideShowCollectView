@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C31E6A1212A723000687C97 /* GroupMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C31E6A0212A723000687C97 /* GroupMainView.m */; };
+		7C31E6A4212A8D8800687C97 /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C31E6A3212A8D8800687C97 /* CategoryView.m */; };
 		7CF4F22F2123B51200579454 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4F22E2123B51200579454 /* AppDelegate.m */; };
 		7CF4F2322123B51200579454 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF4F2312123B51200579454 /* ViewController.m */; };
 		7CF4F2352123B51200579454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF4F2332123B51200579454 /* Main.storyboard */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C31E69F212A723000687C97 /* GroupMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupMainView.h; sourceTree = "<group>"; };
+		7C31E6A0212A723000687C97 /* GroupMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupMainView.m; sourceTree = "<group>"; };
+		7C31E6A2212A8D8800687C97 /* CategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryView.h; sourceTree = "<group>"; };
+		7C31E6A3212A8D8800687C97 /* CategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryView.m; sourceTree = "<group>"; };
 		7CF4F22A2123B51200579454 /* SlideShowCollectView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlideShowCollectView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF4F22D2123B51200579454 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CF4F22E2123B51200579454 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,10 +57,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C31E69E212A71BE00687C97 /* CustomGroupView */ = {
+			isa = PBXGroup;
+			children = (
+				7C31E69F212A723000687C97 /* GroupMainView.h */,
+				7C31E6A0212A723000687C97 /* GroupMainView.m */,
+				7C31E6A2212A8D8800687C97 /* CategoryView.h */,
+				7C31E6A3212A8D8800687C97 /* CategoryView.m */,
+			);
+			path = CustomGroupView;
+			sourceTree = "<group>";
+		};
 		7CF4F2212123B51200579454 = {
 			isa = PBXGroup;
 			children = (
 				7CF4F2532123CB0E00579454 /* image */,
+				7C31E69E212A71BE00687C97 /* CustomGroupView */,
 				7CF4F2462123B55600579454 /* SlideShow */,
 				7CF4F22C2123B51200579454 /* SlideShowCollectView */,
 				7CF4F22B2123B51200579454 /* Products */,
@@ -179,6 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF4F2382123B51200579454 /* SlideShowCollectView.xcdatamodeld in Sources */,
+				7C31E6A1212A723000687C97 /* GroupMainView.m in Sources */,
+				7C31E6A4212A8D8800687C97 /* CategoryView.m in Sources */,
 				7CF4F2322123B51200579454 /* ViewController.m in Sources */,
 				7CF4F2402123B51400579454 /* main.m in Sources */,
 				7CF4F24F2123B81C00579454 /* SlideShowView.m in Sources */,
@@ -326,13 +346,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Z28793AXS;
 				INFOPLIST_FILE = SlideShowCollectView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = qwe.SlideShowCollectView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -343,13 +364,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Z28793AXS;
 				INFOPLIST_FILE = SlideShowCollectView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = qwe.SlideShowCollectView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

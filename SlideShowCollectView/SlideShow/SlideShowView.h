@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GroupMainView.h"
+
 
 @interface SlideShowView : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     UICollectionView *slideShowCollectView;
     NSMutableArray *btnTagArray;
+    GroupMainView *moveView;
+    UIView *tempView;
 }
 
 @property (strong, nonatomic) NSArray *contacts;

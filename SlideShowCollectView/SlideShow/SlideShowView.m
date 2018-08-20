@@ -8,6 +8,7 @@
 
 #import "SlideShowView.h"
 #import "SlideShowViewCell.h"
+#import "GroupMainView.h"
 
 static NSString * const cellIdentifier = @"cellIdentifier";
 
@@ -24,13 +25,12 @@ static NSString * const cellIdentifier = @"cellIdentifier";
         [self setupUI];
         self.backgroundColor = [UIColor greenColor];
     }
-    
     return self;
 }
 
 - (void)setupUI {
     if (slideShowCollectView == nil) {
-        UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
         flowLayout.itemSize = CGSizeMake(self.frame.size.width, 200);
         [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
 
@@ -45,6 +45,7 @@ static NSString * const cellIdentifier = @"cellIdentifier";
     if (btnTagArray == nil) {
         btnTagArray = [[NSMutableArray alloc] init];
     }
+    
     [btnTagArray removeAllObjects];
     [slideShowCollectView registerClass:[SlideShowViewCell class] forCellWithReuseIdentifier:cellIdentifier];
     
@@ -61,6 +62,9 @@ static NSString * const cellIdentifier = @"cellIdentifier";
         [self addSubview:starBtn];
         [btnTagArray addObject:starBtn];
     }
+    
+    moveView = [[GroupMainView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width/2, self.frame.size.height/5)];
+    [self addSubview:moveView];
 }
 
 - (void)starClick:(UIButton *)btn {
@@ -95,18 +99,17 @@ static NSString * const cellIdentifier = @"cellIdentifier";
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    *targetContentOffset = scrollView.contentOffset; // set acceleration to 0.0
+    *targetContentOffset = scrollView.contentOffset;
     float pageWidth = (float)self.bounds.size.width;
     int minSpace = 10;
     
     int cellToSwipe = (scrollView.contentOffset.x)/(pageWidth + minSpace) + 0.5; // cell width + min spacing for lines
-    if (cellToSwipe < 0) {
-        cellToSwipe = 0;
-    } else if (cellToSwipe >= _contacts.count) {
-        cellToSwipe = (int)_contacts.count - 1;
-    }
+//    if (cellToSwipe < 0) {
+//        cellToSwipe = 0;
+//    } else if (cellToSwipe >= _contacts.count) {
+//        cellToSwipe = (int)_contacts.count - 1;
+//    }
     [slideShowCollectView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
-    
     [self setBtnTagStatus:cellToSwipe];
 }
 
