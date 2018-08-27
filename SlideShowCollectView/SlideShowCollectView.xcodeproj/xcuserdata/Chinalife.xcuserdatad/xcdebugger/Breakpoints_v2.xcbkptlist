@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StarScoreView/StarScoreView.m"
-            timestampString = "557043167.574278"
+            timestampString = "557043459.907377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-setBtnStatus:"
             landmarkType = "7">
          </BreakpointContent>

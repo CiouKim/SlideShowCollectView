@@ -74,12 +74,14 @@
 - (void)starPanGesture:(UIPanGestureRecognizer *)reg {
     CGPoint touchPoint = [reg locationInView: self];
     if (reg.state == UIGestureRecognizerStateChanged ) {
-//        NSLog(@"ssssss%f", (touchPoint.x/(self.frame.size.width/_starCount)));
         [self setBtnStatus:(int)round(touchPoint.x/(self.frame.size.width/_starCount))];
     }
 }
 
 - (void)setBtnStatus:(int)index {
+    if (index > _starCount) {
+        index = _starCount;//last one in roud operation alway more than one unit
+    }
     for (UIButton *btn in btnTagArray) {
         if (btn.tag <= index - 1) {
             [btn setSelected:YES];
