@@ -63,7 +63,6 @@
     controllView2Btn.tag = 2;
     [controllView2Btn addTarget:self action:@selector(animationClick:) forControlEvents:UIControlEventTouchUpInside];
     [mainView addSubview:controllView2Btn];
-    
 }
 
 - (void)animationClick:(UIButton *)btn {
@@ -77,7 +76,6 @@
         }
     }
 }
-
 
 - (void)moveView:(UIView*)v withRect:(CGRect)rect {
     [UIView animateWithDuration:0.3

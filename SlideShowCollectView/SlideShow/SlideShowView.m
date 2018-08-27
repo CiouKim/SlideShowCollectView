@@ -9,6 +9,7 @@
 #import "SlideShowView.h"
 #import "SlideShowViewCell.h"
 #import "GroupMainView.h"
+#import "StarScoreView.h"
 
 static NSString * const cellIdentifier = @"cellIdentifier";
 
@@ -65,6 +66,12 @@ static NSString * const cellIdentifier = @"cellIdentifier";
     
     moveView = [[GroupMainView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width/2, self.frame.size.height/5)];
     [self addSubview:moveView];
+    
+    starScoreView = [[StarScoreView alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 100, self.frame.size.width - 40, 60)];
+    starScoreView.delegate = self;
+    starScoreView.starCount = 10;
+    [self addSubview:starScoreView];
+
 }
 
 - (void)starClick:(UIButton *)btn {
@@ -112,6 +119,12 @@ static NSString * const cellIdentifier = @"cellIdentifier";
     [slideShowCollectView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:cellToSwipe inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
     [self setBtnTagStatus:cellToSwipe];
 }
+
+#pragma mark - StarScoreViewDelege
+-(void)doDelegate:(StarScoreView *)starScoreView {
+    NSLog(@"star:>>>>>%d", starScoreView.currentStarValue);
+}
+
 
 @end
 

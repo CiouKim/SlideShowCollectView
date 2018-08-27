@@ -14,16 +14,16 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setupUI];
-//        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 
 - (void)setupUI {
     closeButton = [[UIButton alloc] init];
-    closeButton.backgroundColor = [UIColor redColor];
+    closeButton.backgroundColor = [UIColor cyanColor];
     [closeButton setTitle:@"X" forState:UIControlStateNormal];
-    closeButton.layer.cornerRadius = 10;
+    closeButton.layer.cornerRadius = 6;
     closeButton.layer.masksToBounds = true;
     [closeButton addTarget:self action:@selector(closeView:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:closeButton];
