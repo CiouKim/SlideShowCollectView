@@ -80,8 +80,13 @@
 
 - (void)setBtnStatus:(int)index {
     if (index > _starCount) {
-        index = _starCount;//last one in roud operation alway more than one unit
+        index = _starCount;//toch path in roud operation maybe more than one unit
     }
+    
+    if (index < 0) {//toch path in roud operation  maybe negative
+        index = 0;
+    }
+    
     for (UIButton *btn in btnTagArray) {
         if (btn.tag <= index - 1) {
             [btn setSelected:YES];
