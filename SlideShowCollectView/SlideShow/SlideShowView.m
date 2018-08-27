@@ -70,6 +70,7 @@ static NSString * const cellIdentifier = @"cellIdentifier";
     starScoreView = [[StarScoreView alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 100, self.frame.size.width - 40, 60)];
     starScoreView.delegate = self;
     starScoreView.starCount = 10;
+    starScoreView.currentStarValue = 3;
     [self addSubview:starScoreView];
 
 }

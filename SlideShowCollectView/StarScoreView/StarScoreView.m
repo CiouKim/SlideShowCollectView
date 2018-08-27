@@ -15,7 +15,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor orangeColor];
         btnTagArray = [[NSMutableArray alloc] init];
         [self setupGesture];
     }
@@ -25,6 +25,11 @@
 - (void)setStarCount:(int)starCount {
     _starCount = starCount;
     [self setUI];
+}
+
+-(void)setCurrentStarValue:(int)currentStarValue {
+    _currentStarValue = currentStarValue;
+    [self setBtnStatus:currentStarValue];
 }
 
 - (void)setUI {
@@ -95,7 +100,7 @@
         }
     }
     
-    self.currentStarValue = index;
+    _currentStarValue = index;
     [_delegate doDelegate:self];
 }
 
