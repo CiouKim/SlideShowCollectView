@@ -69,8 +69,8 @@ static NSString * const cellIdentifier = @"cellIdentifier";
     
     starScoreView = [[StarScoreView alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 100, self.frame.size.width - 40, 60)];
     starScoreView.delegate = self;
-    starScoreView.starCount = 10;
-    starScoreView.currentStarValue = 3;
+    starScoreView.starCount = 5;
+//    starScoreView.currentStarValue = 3;//setStarVlue
     [self addSubview:starScoreView];
 
 }
@@ -122,10 +122,9 @@ static NSString * const cellIdentifier = @"cellIdentifier";
 }
 
 #pragma mark - StarScoreViewDelege
--(void)doDelegate:(StarScoreView *)starScoreView {
-    NSLog(@"star:>>>>>%d", starScoreView.currentStarValue);
+-(void)updatePushMessageRating:(StarScoreView *)starScoreView {
+    NSLog(@"StarNumber:%d", starScoreView.currentStarValue);
 }
-
 
 @end
 

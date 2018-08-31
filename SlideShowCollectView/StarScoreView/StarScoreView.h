@@ -13,11 +13,10 @@
 @protocol StarScoreViewDelege <NSObject>
 
 @optional
-- (void) doDelegate:(StarScoreView *)starScoreView;
-
+- (void) updatePushMessageRating:(StarScoreView *)starScoreView;
 @end
 
-@interface StarScoreView : UIView <UIGestureRecognizerDelegate>{
+@interface StarScoreView : UIView <UIGestureRecognizerDelegate> {
     NSMutableArray *btnTagArray;
 }
 

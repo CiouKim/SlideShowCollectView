@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StarScoreView/StarScoreView.m"
-            timestampString = "557045405.020602"
+            timestampString = "557138394.633116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-starPanGesture:"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "-setBtnStatus:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "StarScoreView/StarScoreView.m"
-            timestampString = "557045405.02144"
+            timestampString = "557138394.633536"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-setBtnStatus:"
             landmarkType = "7">
          </BreakpointContent>

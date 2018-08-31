@@ -33,28 +33,34 @@
 }
 
 - (void)setUI {
+    for (UIView *view in self.subviews) {
+        if ([view isEqual:[UIButton class]]) {
+            [view removeFromSuperview];
+        }
+    }
+    
     float gapEdge = 3;
     float OriginalX = 0;
     float OriginalY = 0;
     
     //flexible  size
-    int startW = self.frame.size.width /_starCount;
+    int startW = self.frame.size.width / _starCount;
     if (startW > self.frame.size.height) {
         startW = self.frame.size.height;
     }
     
     gapEdge = startW*0.1;
     if ((startW+gapEdge) * _starCount  > self.frame.size.width) {
-        startW = (self.frame.size.width/_starCount)*0.9;
-        gapEdge = (self.frame.size.width/_starCount)*0.1;
+        startW = (self.frame.size.width / _starCount)*0.9;
+        gapEdge = (self.frame.size.width / _starCount)*0.1;
     }
     
     //set orignal
     OriginalY = (self.frame.size.height - startW)/2;
-    OriginalX = (self.frame.size.width - (startW*_starCount +gapEdge *(_starCount-1)))/2;
+    OriginalX = (self.frame.size.width - (startW*_starCount + gapEdge * (_starCount-1)))/2;
     
     for (int i = 0; i <_starCount ; i++) {
-        UIButton *starBtn = [[UIButton alloc] initWithFrame:CGRectMake(i*(startW + gapEdge) + OriginalX, OriginalY, startW , startW)];
+        UIButton *starBtn = [[UIButton alloc] initWithFrame:CGRectMake(i*(startW + gapEdge) + OriginalX, OriginalY, startW, startW)];
         [starBtn setImage:[UIImage imageNamed:@"blackStar.png"] forState:UIControlStateNormal];
         [starBtn setImage:[UIImage imageNamed:@"yallowStar.png"] forState:UIControlStateSelected];
         [starBtn addTarget:self action:@selector(starClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,12 +80,15 @@
 
 - (void)starClick:(UIButton *)btn {
     [self setBtnStatus:(int)btn.tag+1];
+    [_delegate updatePushMessageRating:self];
 }
 
 - (void)starPanGesture:(UIPanGestureRecognizer *)reg {
     CGPoint touchPoint = [reg locationInView: self];
     if (reg.state == UIGestureRecognizerStateChanged ) {
         [self setBtnStatus:(int)round(touchPoint.x/(self.frame.size.width/_starCount))];
+    } else if (reg.state == UIGestureRecognizerStateEnded) {
+        [_delegate updatePushMessageRating:self];
     }
 }
 
@@ -88,8 +97,8 @@
         index = _starCount;//toch path in roud operation maybe more than one unit
     }
     
-    if (index < 0) {//toch path in roud operation  maybe negative
-        index = 0;
+    if (index <= 0) {//toch path in roud operation  maybe negative min 1
+        index = 1;
     }
     
     for (UIButton *btn in btnTagArray) {
@@ -99,9 +108,7 @@
             [btn setSelected:NO];
         }
     }
-    
     _currentStarValue = index;
-    [_delegate doDelegate:self];
 }
 
 
